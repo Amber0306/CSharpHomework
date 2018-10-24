@@ -140,9 +140,8 @@ namespace program2.Tests
             Assert.IsTrue(result);
         }
 
-       // [ExpectedException(typeof(MyException))]
-        [TestMethod()]
         [ExpectedException(typeof(MyException))]
+        [TestMethod()]
         public void ImportTest1()
         {
             OrderService service = new OrderService();
