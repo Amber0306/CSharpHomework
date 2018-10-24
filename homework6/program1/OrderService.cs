@@ -159,7 +159,7 @@ namespace program2
 
 
         public static XmlSerializer xmlser = new XmlSerializer(typeof(List<Order>));
-        public static string xmlFileName = "orders.xml";
+        //public static string xmlFileName = "orders.xml";
         //将订单序列化为XML文件
         public static void XmlSerialize(XmlSerializer ser, string fileName,object obj)
         {
@@ -168,10 +168,9 @@ namespace program2
             ser.Serialize(fs, obj);
             fs.Close();
         }
-        public void Export()
+        public string Export()
         {
-            //XmlSerializer xmlser = new XmlSerializer(typeof(List<Order>));
-            //string xmlFileName = "orders.xml";
+            string xmlFileName = "orders.xml";
             XmlSerialize(xmlser, xmlFileName, orderList);
 
             Console.WriteLine("XML序列化订单：");
@@ -179,6 +178,7 @@ namespace program2
             string xml = File.ReadAllText(xmlFileName);
             Console.WriteLine(xml);
             Console.WriteLine('\n');
+            return xmlFileName;
         }
 
         //将XML文件反序列化为订单
@@ -189,13 +189,22 @@ namespace program2
             fs.Close();
             return obj;
         }
-        public void Import()
+        public bool Import(string xmlFileName)
         {
-            Console.WriteLine("从XML文件中载入订单如下：");
-            List<Order> orderList2 = XmlDeserialize(xmlser, xmlFileName)
+            if(xmlFileName=="orders.xml")
+            {
+                Console.WriteLine("从XML文件中载入订单如下：");
+                List<Order> orderList2 = XmlDeserialize(xmlser, xmlFileName)
                 as List<Order>;
-            foreach (Order order in orderList)
-                order.ShowOrder();
+                foreach (Order order in orderList)
+                    order.ShowOrder();
+                return true;
+            }
+            else
+            {
+                throw new MyException("该文件不存在！");
+            }
+            
         }
     }
 }

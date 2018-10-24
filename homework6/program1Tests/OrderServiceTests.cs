@@ -118,6 +118,35 @@ namespace program2.Tests
             Assert.AreEqual(myOrder01, result[0]);
         }
 
-       
+        [TestMethod()]
+        public void ExportTest()
+        {
+            OrderService service = new OrderService();
+            //添加订单
+            Order myOrder01 = service.AddOrder("01", "Lily");
+            service.Export();
+            Assert.AreEqual(service.Export(), "orders.xml");
+        }
+
+        [TestMethod()]
+        public void ImportTest()
+        {
+            OrderService service = new OrderService();
+            //添加订单
+            Order myOrder01 = service.AddOrder("01", "Lily");
+            string fileName = service.Export();
+            bool result = service.Import(fileName);
+
+            Assert.IsTrue(result);
+        }
+
+       // [ExpectedException(typeof(MyException))]
+        [TestMethod()]
+        [ExpectedException(typeof(MyException))]
+        public void ImportTest1()
+        {
+            OrderService service = new OrderService();
+            service.Import("test.xml");
+        }
     }
 }

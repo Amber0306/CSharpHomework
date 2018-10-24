@@ -72,7 +72,7 @@ namespace program2
                 //序列化订单
                 service.Export();
                 //反序列化订单
-                service.Import();
+                service.Import("orders.xml");
 
                 //删除订单
                 service.DeleteOrder(myOrder01);
