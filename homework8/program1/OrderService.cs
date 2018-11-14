@@ -260,8 +260,7 @@ namespace Program1
                 xt.Transform(nav, null, writer);
 
                 //调用默认浏览器打开链接
-                //System.Diagnostics.Process.Start("explorer.exe", "https://www.baidu.com");
-                //System.Diagnostics.Process.Start("explorer.exe", @"..\..\index.html");
+                System.Diagnostics.Process.Start("explorer.exe", @"..\..\index.html");
             }
             catch(XmlException e)
             {
