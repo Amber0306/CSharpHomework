@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ArrayOfOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Order>
+    <orderdata>
+      <OrderDetail>
+        <pdtName>apple</pdtName>
+        <pdtNumber>12</pdtNumber>
+        <pdtPrice>5</pdtPrice>
+      </OrderDetail>
+      <OrderDetail>
+        <pdtName>sofa</pdtName>
+        <pdtNumber>3</pdtNumber>
+        <pdtPrice>5000</pdtPrice>
+      </OrderDetail>
+    </orderdata>
+    <id>20181111001</id>
+    <customer>Lily</customer>
+    <phone>13245678901</phone>
+    <sum>15060</sum>
+  </Order>
+  <Order>
+    <orderdata>
+      <OrderDetail>
+        <pdtName>banana</pdtName>
+        <pdtNumber>2</pdtNumber>
+        <pdtPrice>7</pdtPrice>
+      </OrderDetail>
+    </orderdata>
+    <id>20181111002</id>
+    <customer>Mike</customer>
+    <phone>15466666666</phone>
+    <sum>14</sum>
+  </Order>
+</ArrayOfOrder>
